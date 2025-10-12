@@ -36,7 +36,7 @@ function Header() {
       </div>
 
       {/* get started button  */}
-        <SignInButton>
+        <SignInButton mode="modal">
       <Button>Get Started</Button>
       </SignInButton>
     </div>
