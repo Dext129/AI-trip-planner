@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { SignIn, SignInButton } from "@clerk/nextjs";
 const menuOptions = [
   {
     name: "Home",
@@ -35,8 +36,9 @@ function Header() {
       </div>
 
       {/* get started button  */}
-
+        <SignInButton>
       <Button>Get Started</Button>
+      </SignInButton>
     </div>
   );
 }
