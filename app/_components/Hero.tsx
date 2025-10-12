@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Globe2, Landmark, Plane, Send } from "lucide-react";
-import React from "react";
-
+import { ArrowDown, Globe2, Landmark, Plane, Send } from "lucide-react";
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog"
 
 const suggestion = [
   {
@@ -23,7 +22,7 @@ const suggestion = [
 
 function Hero() {
   return (
-    <div className="mt-24 w-full flex justify-center">
+    <div className="mt-24 w-full flex flex-col items-center gap-8">
       {/* Content */}
         <div className="max-w-3xl w-full text-center space-y-6">
             <h1 className="text-xl md:text-5xl font-bold">Hey, I'm your personal <span className="text-primary">Trip Planner</span></h1>
@@ -51,8 +50,18 @@ function Hero() {
               ))}
             </div>
         </div>
-      {/* Video section */}
 
+      {/* Video section */}
+      <h2 className="my-7 mt-14 flex gap-2 text-center">Not Sure where to Start <strong>See How it works</strong> <ArrowDown className="h-5 w-5"/></h2>
+      <div className="max-w-3xl w-full">
+        <HeroVideoDialog
+          className="block dark:hidden"
+          animationStyle="from-center"
+          videoSrc="https://www.example.com/dummy-video"
+          thumbnailSrc="https://mma.prnewswire.com/media/2401528/1_MindtripProduct.jpg?p=facebook"
+          thumbnailAlt="Dummy Video Thumbnail"
+        />
+      </div>
     </div>
   );
 }
