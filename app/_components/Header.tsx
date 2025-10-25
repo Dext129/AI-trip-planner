@@ -29,7 +29,7 @@ function Header() {
       <div className="flex gap-8 items-center">
         {/* menu options */}
         {menuOptions.map((menu, index) => (
-          <Link href={menu.path}>
+          <Link key={menu.path} href={menu.path}>
             <h2 className="text-lg hover:scale-105 transition-all hover:text-primary">
               {menu.name}
             </h2>
@@ -41,7 +41,7 @@ function Header() {
        {!user? <SignInButton mode="modal">
       <Button>Get Started</Button>
       </SignInButton>:
-    <Link href="/create-trip">
+    <Link href="/create-new-trip">
       <Button>Create new Trip</Button>
       </Link>}
     </div>
