@@ -3,11 +3,27 @@ import { div, section } from 'motion/react-client'
 import React from 'react'
 import { Textarea } from '@/components/ui/textarea'
 import { Send } from 'lucide-react'
+import axios from 'axios'
+import { useState } from 'react'
+
+type Message={
+    role:string;
+    content:string;
+}
 
 function Chatbox() {
+    const [messages,setMessages]=useState<Message[]>([]);
+    const [userInput,setUserInput]=useState<string>();
   const onSend = () => {
-    // Handle sending message
-    console.log('Send message');
+    if(!userInput?.trim()) return;
+    setUserInput('');
+        const newMsg:Message={
+            role:'user',
+            content:userInput
+        }
+    const result=await axios.post('/api/aimodel',{
+        messages:
+    })
   };
 
   return (
@@ -31,6 +47,8 @@ function Chatbox() {
                 <Textarea 
                     placeholder="Create a trip for Paris from NewYork"
                     className="w-full h-28 bg-transparent border-none focus-visible:ring-0 shadow-none resize-none"
+                onChange={(event)=>setUserInput(event.target.value)}
+                value={userInput}
                 />
                 <Button size={'icon'} className='absolute bottom-6 right-6' onClick={()=>onSend()}>
                     <Send className='h-4 w-4'/>
